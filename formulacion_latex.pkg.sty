@@ -1,0 +1,91 @@
+% formulacion_latex.pkg.sty
+% Paquetes y configuración
+%
+% Copyright (C) 2022--2026 José A. Navarro Ramón <janr.devel@gmail.com>
+% Licencia del código GPLv2
+% Licencia Creative Commons Recognition Non-Commercial Share-alike.
+% (CC-BY-NC-SA)
+%
+%% ---------------------------------------------------------------------------------
+% ACTIVACIÓN DE FUENTES
+\RequirePackage{fontspec}
+%% ---------------------------------------------------------------------------------
+% MATEMÁTICAS
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+%% ---------------------------------------------------------------------------------
+\RequirePackage[math-style=TeX]{unicode-math}
+\defaultfontfeatures{Ligatures=TeX}
+\RequirePackage{lualatex-math}
+%% ---------------------------------------------------------------------------------
+% IDIOMAS
+\RequirePackage{polyglossia}
+\setmainlanguage{spanish}
+% Forzar "Tabla" en lugar de "Cuadro" en Polyglossia
+\gappto\captionsspanish{
+  \renewcommand{\tablename}{Tabla}
+  \renewcommand{\listtablename}{Índice de tablas}
+}
+%% ---------------------------------------------------------------------------------
+% FUENTES
+% Principal
+% Libertinus Serif, XITS, calibri
+% Elijo Libertinux
+\setmainfont{Libertinus Serif}
+\setmathfont{Libertinus Math}
+\setmonofont{Libertinus Mono}
+\setsansfont{Libertinus Sans}
+\RequirePackage{libertinus-otf}
+%% ---------------------------------------------------------------------------------
+% NO INDENTA PRIMERA LÍNEA DE PÁRRAFOS Y AÑADE ESPACIADO ENTRE ELLOS
+\usepackage{parskip}
+%% ---------------------------------------------------------------------------------
+% TABLAS
+\RequirePackage{longtable}
+%% ---------------------------------------------------------------------------------
+% CAPTION
+\usepackage[justification=raggedright, singlelinecheck=false]{caption}
+%% ---------------------------------------------------------------------------------
+% UNIDADES
+\RequirePackage{siunitx}
+\sisetup{per-mode=power}
+\sisetup{exponent-product=\cdot}
+\sisetup{output-decimal-marker = {,}}
+\sisetup{retain-explicit-plus}
+\DeclareSIUnit\cv{CV}
+%% ---------------------------------------------------------------------------------
+% QUÍMICA
+\RequirePackage[version=4]{mhchem}
+% \RequirePackage[version=4,arrows=pgf]{mhchem}
+%\RequirePackage[version=4,arrows=pgf-filled]{mhchem}
+\mhchemoptions{minus-text-sidebearing-left=0.10em, minus-text-sidebearing-right=0.16em}
+\mhchemoptions{minus-math-sidebearing-left=0.06em, minus-math-sidebearing-right=0.11em}
+% ....................................................................................
+\RequirePackage{chemfig}
+%% ---------------------------------------------------------------------------------
+% GRÁFICOS
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{luacolor}
+\RequirePackage{fancyvrb-ex}
+% -----------------------
+\RequirePackage{tikz}
+% ...................
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{bending}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{fit}
+\usetikzlibrary{calc}
+\usetikzlibrary{angles}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes}
+\usetikzlibrary{snakes}
+
+
+%%% Local Variables:
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-engine: luatex
+%%% TeX-master: "formulacion_latex.tex"
+%%% End:

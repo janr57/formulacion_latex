@@ -1,0 +1,52 @@
+% formulacion_latex.defs.sty
+%
+% Copyright (C) 2022--2026 José A. Navarro Ramón <janr.devel@gmail.com>
+% Licencia del código GPLv2
+% Licencia Creative Commons Recognition Non-Commercial Share-alike.
+% (CC-BY-NC-SA)
+
+
+% ---------------------------------------------------------------------------------
+% Colores
+\newcommand{\badcode}{red!70!black}
+\newcommand{\greenatom}{green!60!black}
+% ---------------------------------------------------------------------------------
+
+% Define box and box title style
+\tikzstyle{mybox1} = [draw=blue, fill=blue!3, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+\tikzstyle{fancytitle} =[fill=red, text=white]
+%
+\tikzstyle{mybox2} = [draw=blue, fill=yellow!20, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+\tikzstyle{fancytitle} =[fill=blue, text=white, rectangle]
+
+
+
+% ???????????????????????????
+\newcommand\TIKZ{ti\textit kz\xspace}
+\newcommand\molht[1]{\begingroup\parskip3.5pt\par\hfill\chemfig{#1}\hfill\null\par\endgroup}
+\newcommand\boxednode[2]{\fbox{$\mathrm{#1}\vphantom{M_1}$}_{#2}}
+\newcommand\boxedfalseverb[1]{{\fboxsep0pt\fbox{\vphantom|\falseverb{#1}}}}
+\newcommand*\chevrons[1]{\textlangle\textit{#1}\textrangle}
+\newcommand*\CFkey[1]{{\color{teal}\texttt{\detokenize{#1}}}}
+\newcommand*\CFval[1]{{\color{teal}\textlangle\textit{#1}\textrangle}}
+\newcommand*\CFkv[2]{\CFkey{#1}{\color{teal}${}={}$}\CFval{#2}}
+\newcommand*\CFparam[2]{%
+	\CFkey{#1}&%
+	\ifcat\relax\detokenize\expandafter\expandafter\expandafter{\useKV[chemfig]{#1}}\relax \textlangle\textit{empty}\textrangle\else\texttt{\detokenize\expandafter\expandafter\expandafter{\useKV[chemfig]{#1}}}\fi&%
+	#2\\%
+}
+\newcommand*\Chargeparam[1]{\CFkey{#1}&\ifcat\relax\detokenize\expandafter\expandafter\expandafter{\useKV[charge]{#1}}\relax \textlangle\textit{vide}\textrangle\else\texttt{\detokenize\expandafter\expandafter\expandafter{\useKV[charge]{#1}}}\fi}
+\newcommand*\CFdelimparam[1]{\CFkey{#1}&\ifcat\relax\detokenize\expandafter\expandafter\expandafter{\useKV[CFdelimiters]{#1}}\relax \textlangle\textit{vide}\textrangle\else\texttt{\detokenize\expandafter\expandafter\expandafter{\useKV[CFdelimiters]{#1}}}\fi}
+
+
+
+
+
+%%% Local Variables:
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-engine: luatex
+%%% TeX-master: "formulacion_latex.tex"
+%%% End:
