@@ -1176,94 +1176,121 @@ cuarto, utilizamos el grosor por defecto del enlace, e incluso escribimos
 \end{tabular}
 
 
-%\subsection{Valores por defecto para los enlaces}
-%Las propiedades de los enlaces están determinadas por cinco parámetros:
-%\begin{center}
-%  \texttt{[ángulo, coeficiente, salida, llegada, tikz]}
-%\end{center}
-%
-%Si no se especificaran estos parámetros, \textsf{chemfig} utiliza los siguientes:
-%\begin{enumerate}
-%\item Ángulo: \qty{0}{\degree}. El enlace se dirige de izquierda a derecha.
-%\item Coeficiente: 1. La distancia entre los átomos o la longitud del enlace es
-%  1 multiplicado por la distancia especificada para \texttt{atom sep}, según sea
-%  el valor especificado a \texttt{fixed length}.
-%\item Átomos de salida y llegada: vacíos. Lo que indica que el enlace se dirige
-%  entre los dos átomos más cercanos, teniendo en cuenta el ángulo que forma el enlace.
-%\item Estilo tikz: vacío. No añade ningún estilo especial de \textsf{tikz}.
-%\end{enumerate}
-%
-%Además, estos se pueden establecer:
-%\begin{itemize}
-%\item En el prólogo del documento, para todas las fórmulas, por defecto:
-%  \begin{center}
-%    \texttt{\textbackslash setchemfig\{ángulo,coeficiente,salida,llegada,tikz\}}
-%  \end{center}
-%\item Para una molécula en particular, al principio del comando
-%  \texttt{\textbackslash chemfig}, cuyo efecto . Veamos
-%  dos ejemplos. En el primero, especificamos un ángulo de enlace y distancia
-%  interatómica para el primer enlace; al segundo enlace no le afecta. En el segundo
-%  ejemplo, definimos color rojo al principio del comando, por lo que afectará a todos
-%  los enlaces, a menos que se indique otra cosa para algún o algunos enlaces en
-%  particular, en este ejemplo, para el doble enlace indicamos color verde y el último
-%  enlace vuelve a ser rojo, como habíamos indicado por defecto en esta molécula:
-%    
-%  \begin{tabular}{|cl|}\hline
-%    \phantom{\rule{0.4pt}{6ex}}
-%    \chemfig{A-[:15,2,,,,red]B-C}
-%    & {\small
-%      \texttt{\textbackslash chemfig\{A-[:15,2,,,,red]B-C\}}
-%      }\\\hline
-%    \phantom{\rule{0.4pt}{3ex}}
-%    \chemfig{[,,,,red]A-B-C=[,,,,green]D-E}
-%    & {\footnotesize
-%      \texttt{%
-%      \textbackslash chemfig\{[,,,,red]A-B-C=[,,,,green]D-E\}}
-%      }\\\hline
-%  \end{tabular}
-%\end{itemize}
+\subsection{Valores por defecto para los enlaces}
+Las propiedades de los enlaces están determinadas por cinco parámetros:
+\begin{center}
+  \texttt{[ángulo, coeficiente, salida, llegada, tikz]}
+\end{center}
 
-%\subsection{Ramificaciones}
-%Hasta ahora hemos visto moléculas que hemos escrito linealmente. Se pueden añadir
-%\emph{ramificaciones} a las anteriores (esto también servirá para las ramificaciones,
-%una vez que veamos los ciclos).
-%
-%En el primer ejemplo representamos una fórmula genérica lineal \ce{A-B-C}.
-%En el segundo ejemplo, añadimos en el segundo átomo de la cadena, la ramificación \texttt{-[2]W-X}, que se encierra entre paréntesis (recordemos que el número 2 indica que
-%la ramificación forma un ángulo de $2\cdot\qty{45}{\degree}=\qty{90}{\degree}$:
-%
-%\begin{tabular}{|c|c|}\hline
-%  \phantom{\rule{0.4pt}{10ex}}
-%  \chemfig{A-B-C}
-%  & \chemfig{A-B(-[2]W-X)-C}\\
-%  \texttt{%
-%  \textbackslash chemfig\{A-B-C\}
-%  }
-%  & \texttt{%
-%    \textbackslash chemfig\{%
-%    \{A-B(-[2]W-X)-C\}}\\\hline
-%\end{tabular}
-%
-%Aunque la fórmula anterior se ha escrito y se lee fácilmente, suele ser recomendable
-%dibujar la estructura base (que no necesariamente cadena lineal) que tenga más átomos,
-%y el resto como ramificaciones. Por tanto la fórmula anterior se podría haber escrito
-%de varias formas. Una de ellas es representar la estructura base de cuatro átomos
-%\ce{A-B-W-X} y añadir como ramificación la \ce{C}:
-%
-%\begin{tabular}{|c|c|}\hline
-%  \phantom{\rule{0.4pt}{10ex}}
-%  \chemfig{A-B-[2]W-X}
-%  & \chemfig{A-B(-C)-[2]W-X}\\
-%  \texttt{%
-%  \textbackslash chemfig\{A-B-[2]W-X\}
-%  }
-%  & \texttt{%
-%    \textbackslash chemfig\{%
-%    \{A-B(-C)-[2]W-X}\\\hline
-%\end{tabular}
+Por defecto, \textsf{chemfig} utiliza los siguientes valores:
+\begin{enumerate}
+\item Primera posición, ángulo: \qty{0}{\degree}
+
+  El enlace se dirige de izquierda a derecha.
+  
+\item Segunda posición, coeficiente: 1
+
+  La distancia entre los átomos o la longitud del enlace es
+  1 multiplicado por la distancia especificada para \texttt{atom sep} (dependiendo del
+  valor de \texttt{fixed length}).
+  
+\item Tercer y cuarta posiciones, átomos de salida y llegada: \rule[0.5ex]{1.5em}{0.6pt}
+
+  Lo que indica que el enlace se dirige
+  entre los dos átomos más cercanos, teniendo en cuenta el ángulo que forma el enlace.
+  
+\item Quinta posición, estilo tikz: \rule[0.5ex]{1.5em}{0.6pt}
+
+  No añade ningún estilo especial de \textsf{tikz}.
+\end{enumerate}
+
+\vspace{1ex}
+Podemos modificar estos valores, especificando entre corchetes los valores que queremos
+cambiar, respetando el orden de las comas:
+\begin{itemize}
+\item Para un enlace concreto de una molécula, justo después del enlace.  
+\item Para todos los enlaces de una molécula en particular, al principio del comando
+  \texttt{\textbackslash chemfig}, justo después de la llave de apertura "\texttt{\{}".
+\end{itemize}
+
+En el primer ejemplo, especificamos un ángulo de enlace y distancia
+interatómica para el enlace entre \ce{A} y \ce{B}, que no afecta al segundo enlace, entre
+\ce{B} y \ce{C}.
+
+En el segundo ejemplo, definimos color rojo para los enlaces de la molécula al principio
+del comando, por lo que afectará a todos los enlaces, excepto a los enlaces en particular
+que se cambien, en este ejemplo, para el doble enlace indicamos color verde y el
+último enlace vuelve a ser rojo, como habíamos indicado por defecto en esta molécula.
+    
+\begin{tabular}{|cl|}\hline
+  \phantom{\rule{0.4pt}{6ex}}
+  \chemfig{A-[:15,2,,,,red]B-C}
+  & \texttt{\textbackslash chemfig\{A-[:15,2,,,,red]B-C\}}\\
+  \hline
+  \phantom{\rule{0.4pt}{3ex}}
+  \chemfig{[,,,,red]A-B=[,,,,green]C-D}
+  & \texttt{\textbackslash chemfig\{[,,,,red]A-B=[,,,,green]C-D\}}\\
+  \hline
+\end{tabular}
+
+\subsection{Ramificaciones}
+Hasta ahora, las fórmulas las hemos escrito de forma que los grupos de átomos se unían
+en línea, unos después de otros, formando una cadena abierta horizontal, vertical,
+formando un cierto ángulo o una línea quebrada.
+
+Pero se pueden añadir \emph{ramificaciones} a las cadenas anteriores (esto también
+servirá para las ramificaciones en los ciclos, cuando los veamos).
+¿Cómo se añaden estas? Insertando entre paréntesis, justo después del átomo que sufre la
+ramificación un enlace, posibles parámetros que le afecten y los átomos involucrados.
+
+En el primer ejemplo representamos una cadena lineal genérica \ce{A-B-C}.
+A su derecha añadimos en el segundo átomo de la cadena, la ramificación
+\texttt{-[2]W-X}, que se encierra entre paréntesis (recordemos que el número 2, como
+primer parámetro indica que la ramificación forma un ángulo absoluto de
+$2\cdot\qty{45}{\degree}=\qty{90}{\degree}$.
+
+\begin{tabular}{|c|c|}\hline
+  \phantom{\rule{0.4pt}{10ex}}
+  \chemfig{A-B-C}
+  & \chemfig{A-B(-[2,,,,red]\textcolor{red!70!black}{W}-[,,,,red]\textcolor{red!70!black}{X})-C}\\
+  \texttt{\{A-B-C\}}
+  & \texttt{\{A-B\textcolor{red!70!black}{(-[2]W-X)}-C\}}\\
+  \hline
+\end{tabular}
+
+donde la ramificación se ha señalado en rojo.
+
+\vspace{1ex}
+Se recomienda escribir el código de la cadena base que nos interesa, y cuando comprobemos
+que produce la estructura correcta, entonces insertar paréntesis de apertura y cierre
+después del átomo que sufre la ramificación y, por último completar esta.
+
+Aunque la fórmula anterior se ha escrito y se lee fácilmente, suele ser recomendable
+dibujar la estructura base (que no necesariamente la cadena principal tal y como se
+define en formulación orgánica, pues aquí no nos importan los enlaces múltiples, entre
+otras cosas) que tenga más átomos, y el resto como ramificaciones; deesta forma
+disminuimos el número de ellas o la longitud de estas, que son situaciones que en
+fórmulas complejas pueden complicar la lectura del código fuente.
+
+Según este criterio, la fórmula anterior se podría haber escrito de varias formas;
+una de ellas es representar la estructura base de cuatro átomos
+\ce{A-B-W-X}, y añadir como ramificación la \ce{C}. De nuevo se señala la ramificación
+en rojo:
+
+\begin{tabular}{|c|c|}\hline
+  \phantom{\rule{0.4pt}{10ex}}
+  \chemfig{A-B-[2]W-X}
+  & \chemfig{A-B(-[,,,,red]\textcolor{red!70!black}{C})-[2]W-X}\\
+  \texttt{%
+  \textbackslash chemfig\{A-B-[2]W-X\}
+  }
+  & \texttt{%
+    \textbackslash chemfig\{%
+    \{A-B\textcolor{red!70!black}{(-C)}-[2]W-X}\\\hline
+\end{tabular}
 
 
-%\subsection{Ejemplos}
+%\subsection{Ejemplos de ramificaciones en cadenas abiertas}
 %Para estos ejemplos utilizaremos unas distancias interatómicas más cortas:
 %
 %\texttt{
