@@ -1137,36 +1137,43 @@ Veamos unos ejemplos:
 \end{tabular}
 
 
-%\subsection{Conectando enlaces}
-%Cuando se unen enlaces entre sí, no se ajustan perfectamente, sobre todo esto es
-%visible cuando la anchura del enlace es grande. Para que se unan perfectamente hay que
-%añadir \texttt{bond join=true} o simplemente \texttt{bond join}. Veamos los siguientes
-%ejemplos:
-%
-%\begin{tabular}{|cl|}\hline
-%  \phantom{\rule{0.4pt}{6ex}}
-%  \chemfig{-[:45]-[::-90]}
-%  & {\small
-%    \texttt{\textbackslash chemfig\{-[:45]-[::-90]\}}
-%    }\\\hline
-%  \phantom{\rule{0.4pt}{6ex}}
-%  \chemfig[bond style={line width=3.5pt}]{-[:45]-[::-90]}
-%  & {\small
-%    \texttt{%
-%    \textbackslash chemfig[bond style=\{line width=3.5pt\}]\{-[:45]-[::-90]\}}
-%    }\\\hline
-%  \phantom{\rule{0.4pt}{6ex}}
-%  \chemfig[bond join,bond style={line width=3.5pt}]{-[:45]-[::-90]}
-%  & {\footnotesize
-%    \texttt{%
-%    \textbackslash chemfig[bond join,bond style=\{line width=3.5pt\}]\{-[:45]-[::-90]\}}
-%    }\\\hline
-%  \phantom{\rule{0.4pt}{6ex}}
-%  \chemfig[bond join=true]{-[:45]-[::-90]}
-%  & {\small
-%    \texttt{\textbackslash chemfig[bond join=true]\{-[:45]-[::-90]\}}
-%    }\\\hline
-%\end{tabular}
+\subsection{Conectando enlaces}
+Cuando se unen enlaces entre sí, no se ajustan perfectamente, sobre todo esto es
+visible cuando el grosor del enlace es grande. Para que se unan perfectamente hay que
+añadir \texttt{bond join=true} o simplemente \texttt{bond join}.
+
+Veamos los siguientes ejemplos. En el primero unimos los dos enlaces y parece que todo
+está bien. En el segundo ampliamos el grosor de las líneas y comprobamos que no forman
+una unión completa. En el tercero, añadimos \texttt{bond join=true}, utilizando una
+anchura de línea grande y comprobamos que la unión forma un vértice perfecto. En el
+cuarto, utilizamos el grosor por defecto del enlace, e incluso escribimos
+\texttt{bond join}, sin el \texttt{=true}:
+
+\begin{tabular}{|cl|}\hline
+  \phantom{\rule{0.4pt}{6ex}}
+  \chemfig{-[:45]-[::-90]}
+  & {\small
+    \texttt{\textbackslash chemfig\{-[:45]-[::-90]\}}
+    }\\\hline
+  \phantom{\rule{0.4pt}{6ex}}
+  \chemfig[bond style={line width=3.5pt}]{-[:45]-[::-90]}
+  & {\small
+    \texttt{%
+    \textbackslash chemfig[bond style=\{line width=3.5pt\}]\{-[:45]-[::-90]\}}
+    }\\\hline
+  \phantom{\rule{0.4pt}{6ex}}
+  \chemfig[bond join=true,bond style={line width=3.5pt}]{-[:45]-[::-90]}
+  & {\footnotesize
+    \texttt{%
+    \textbackslash chemfig[bond join=true,
+    bond style=\{line width=3.5pt\}]\{-[:45]-[::-90]\}}
+    }\\\hline
+  \phantom{\rule{0.4pt}{6ex}}
+  \chemfig[bond join]{-[:45]-[::-90]}
+  & {\small
+    \texttt{\textbackslash chemfig[bond join]\{-[:45]-[::-90]\}}
+    }\\\hline
+\end{tabular}
 
 
 %\subsection{Valores por defecto para los enlaces}
