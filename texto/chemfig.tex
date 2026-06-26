@@ -1186,21 +1186,25 @@ Por defecto, \textsf{chemfig} utiliza los siguientes valores:
 \begin{enumerate}
 \item Primera posición, ángulo: \qty{0}{\degree}
 
+  \vspace{-1ex}
   El enlace se dirige de izquierda a derecha.
   
 \item Segunda posición, coeficiente: 1
 
+  \vspace{-1ex}
   La distancia entre los átomos o la longitud del enlace es
   1 multiplicado por la distancia especificada para \texttt{atom sep} (dependiendo del
   valor de \texttt{fixed length}).
   
 \item Tercer y cuarta posiciones, átomos de salida y llegada: \rule[0.5ex]{1.5em}{0.6pt}
 
+  \vspace{-1ex}
   Lo que indica que el enlace se dirige
   entre los dos átomos más cercanos, teniendo en cuenta el ángulo que forma el enlace.
   
 \item Quinta posición, estilo tikz: \rule[0.5ex]{1.5em}{0.6pt}
 
+  \vspace{-1ex}
   No añade ningún estilo especial de \textsf{tikz}.
 \end{enumerate}
 
@@ -1213,14 +1217,23 @@ cambiar, respetando el orden de las comas:
   \texttt{\textbackslash chemfig}, justo después de la llave de apertura "\texttt{\{}".
 \end{itemize}
 
+\vspace{1ex}
 En el primer ejemplo, especificamos un ángulo de enlace y distancia
 interatómica para el enlace entre \ce{A} y \ce{B}, que no afecta al segundo enlace, entre
 \ce{B} y \ce{C}.
 
+\begin{tabular}{|cl|}\hline
+  \phantom{\rule{0.4pt}{6ex}}
+  \chemfig{A-[:15,2,,,,red]B-C}
+  & \texttt{\textbackslash chemfig\{A-[:15,2,,,,red]B-C\}}\\
+  \hline
+\end{tabular}
+
+\vspace{1ex}
 En el segundo ejemplo, definimos color rojo para los enlaces de la molécula al principio
 del comando, por lo que afectará a todos los enlaces, excepto a los enlaces en particular
 que se cambien, en este ejemplo, para el doble enlace indicamos color verde y el
-último enlace vuelve a ser rojo, como habíamos indicado por defecto en esta molécula.
+último enlace vuelve a ser rojo, como habíamos indicado por defecto en esta molécula:
     
 \begin{tabular}{|cl|}\hline
   \phantom{\rule{0.4pt}{6ex}}
@@ -1230,6 +1243,19 @@ que se cambien, en este ejemplo, para el doble enlace indicamos color verde y el
   \phantom{\rule{0.4pt}{3ex}}
   \chemfig{[,,,,red]A-B=[,,,,green]C-D}
   & \texttt{\textbackslash chemfig\{[,,,,red]A-B=[,,,,green]C-D\}}\\
+  \hline
+\end{tabular}
+
+\vspace{1ex}
+En el tercer ejemplo, definimos un ángulo de enlace absoluto de \qty{15}{\degree} y
+distancia interatómica un \qty{75}{\percent} de la que está por defecto:
+
+\begin{tabular}{|c|c|}\hline
+  \phantom{\rule{0.4pt}{6.5ex}}
+  \chemfig{A-B-C}
+  & \chemfig{[:15,0.75]A-B-C}\\
+  \texttt{\textbackslash chemfig\{A-B-C\}}
+  & \texttt{\textbackslash chemfig\{[:15,0.75]A-B-C\}}\\
   \hline
 \end{tabular}
 
@@ -1257,7 +1283,6 @@ $2\cdot\qty{45}{\degree}=\qty{90}{\degree}$.
   & \texttt{\{A-B\textcolor{red!70!black}{(-[2]W-X)}-C\}}\\
   \hline
 \end{tabular}
-
 donde la ramificación se ha señalado en rojo.
 
 \vspace{1ex}
