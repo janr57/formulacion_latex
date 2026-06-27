@@ -1362,8 +1362,113 @@ documento\footnotemark{}:
   node style = {scale=0.85} % Escala ligeramente las etiquetas de los átomos
 }
 
+A partir de ahora se aplicarán los valores anteriores por defecto, a menos que se diga
+lo contrario.
+
+\subsection{Efecto del primer elemento en la línea base}
+El primer elemento, átomo o enlace que se dibuja en una fórmula define la línea base,
+que se indica en rojo.
+
+En el siguiente ejemplo, el átomo \ce{A} es el primero que aparece en el comando
+\texttt{\textbackslash chemfig} y, por tanto, define la línea base:
+
+\begin{tabular}{|l|}\hline
+  \phantom{\rule{0.4pt}{2.5ex}}
+  \phantom{\chemfig{A-B}}\hspace{-3em}\tikz \draw[help lines, red,] (0,0) -- (5em,0);
+  \chemfig{A-B}
+  \tikz \draw[help lines, red] (0,0) -- (5em,0);
+  \\[0.25ex]\hline
+  \multicolumn{1}{|c|}{%
+  \phantom{\rule{0.4pt}{3ex}}
+  \texttt{\textbackslash chemfig\{A-B\}}
+  }
+  \\\hline
+\end{tabular}
+
+\vspace{1ex}
+Cuando no se representa el átomo que define la línea base, se supone que es un punto
+invisible sin tamaño:
+
+\begin{tabular}{|c|}\hline
+  \phantom{\rule{0.4pt}{2ex}}
+  \phantom{\chemfig{-B}}\hspace{-2em}\tikz \draw[help lines, red] (0,0) -- (5em,0);
+  \chemfig{-B}
+  \tikz \draw[help lines, red] (0,0) -- (5em,0);
+  \\[0.25ex]\hline
+  \phantom{\rule{0.4pt}{3ex}}
+  \texttt{\textbackslash chemfig\{-B\}}
+  \\\hline
+\end{tabular}
+
+\vspace{1ex}
+En la siguiente fórmula hemos puesto \ce{A} como primer átomo:
+
+\begin{tabular}{|c|}\hline
+  \phantom{\rule{0.4pt}{2.5ex}}
+  \phantom{\chemfig{A-[7]B}}\hspace{-2em}\tikz \draw[help lines, red] (0,0) -- (5em,0);
+  \chemfig{A-[7]B}
+  \tikz \draw[help lines, red] (0,0) -- (5em,0);
+  \\[3.5ex]\hline
+  \phantom{\rule{0.4pt}{3ex}}
+  \texttt{\textbackslash chemfig\{A-[7]B\}}
+  \\\hline
+\end{tabular}
+
+\vspace{1ex}
+Ahora repetimos la misma fórmula, pero dibujamos primero \ce{B}:
+
+\begin{tabular}{|c|}\hline
+  \phantom{\rule{0.4pt}{6ex}}
+  \phantom{\chemfig{B-[3]A}}\hspace{-2em}\tikz \draw[help lines, red] (0,0) -- (5em,0);
+  \chemfig{B-[3]A}
+  \tikz \draw[help lines, red] (0,0) -- (5em,0);
+  \\[0.25ex]\hline
+  \phantom{\rule{0.4pt}{3ex}}
+  \texttt{\textbackslash chemfig\{B-[3]A\}}
+  \\\hline
+\end{tabular}
+
+\vspace{1ex}
+Hemos dicho que el primer átomo define la línea base, pero hay un parámetro que hace que
+se sitúe por encima o por debajo del átomo. El parámetro es \texttt{baseline=<dim>}.
+
+En el siguiente ejemplo, la línea base se sitúa $5pt$ por encima de la base del átomo:
+
+\begin{tabular}{|l|}\hline
+  \phantom{\rule{0.4pt}{2ex}}
+  \phantom{\chemfig{A-B}}\hspace{-1em}\tikz \draw[help lines, red,] (0,0) -- (5em,0);
+  \chemfig[baseline=5pt]{A-B}
+  \tikz \draw[help lines, red] (0,0) -- (5em,0);
+  \\[1.25ex]\hline
+  \multicolumn{1}{|c|}{%
+  \phantom{\rule{0.4pt}{3ex}}
+  \texttt{\textbackslash chemfig[baseline=5pt]\{A-B\}}
+  }
+  \\\hline
+\end{tabular}
+
+\vspace{1ex}
+Ahora se sitúa $5pt$ por debajo de la base del átomo:
+
+\begin{tabular}{|l|}\hline
+  \phantom{\rule{0.4pt}{4ex}}
+  \phantom{\chemfig{A-B}}\hspace{-1em}\tikz \draw[help lines, red,] (0,0) -- (5em,0);
+  \chemfig[baseline=-5pt]{A-B}
+  \tikz \draw[help lines, red] (0,0) -- (5em,0);
+  \\[1ex]\hline
+  \multicolumn{1}{|c|}{%
+  \phantom{\rule{0.4pt}{3ex}}
+  \texttt{\textbackslash chemfig[baseline=-5pt]\{A-B\}}
+  }
+  \\\hline
+\end{tabular}
+
+
 \subsection{Ejemplos de ramificaciones en cadenas abiertas}
-Empezamos con unas cuantas versiones del \emph{isobutano}:
+Empezamos con unas cuantas versiones del \emph{isobutano}.
+
+Observa que las dos fórmulas siguen la misma línea base porque utilizan el mismo átomo
+\ce{C} en el comando:
 
 \begin{tabular}{|c|c|}\hline
   \phantom{\rule{0.4pt}{7ex}}
@@ -1379,20 +1484,9 @@ Empezamos con unas cuantas versiones del \emph{isobutano}:
 \end{tabular}
 
 \vspace{1ex}
-%
-%\begin{tabular}{|c|c|}\hline
-%  \phantom{\rule{0.4pt}{7ex}}
-%  \chemfig{\color{\greenatom}{CH_3}-CH(-[2]CH_3)-CH_3}
-%  & \chemfig{\color{\greenatom}{CH_3}-CH(-[6]CH_3)-CH_3}\\
-%  \texttt{%
-%  \{CH\_3-CH(-[2]CH\_3)-CH\_3\}
-%  }
-%  & \texttt{%
-%    \{CH\_3-CH(-[2]CH\_3)-CH\_3\}
-%    }
-%  \\\hline
-%\end{tabular}
-%
+
+
+
 %Si comparamos las dos fórmulas anteriores, vemos que las cadenas principales se
 %encuentran a la misma altura (\emph{baseline}). Esto se debe a que el \emph{átomo}
 %de referencia (el que se encuentra en la línea base) es el primero que se escribe.
