@@ -46,14 +46,14 @@ Se pueden dar dos situaciones:
 \vspace{-1ex}
 \begin{itemize}
 \item Si \textsf{chemfig} se carga en el fichero principal:
-  \textcolor{red!70!black}{\texttt{\textbackslash usepackage\{chemfig\}}}
+  \textcolor{\standoutColor}{\texttt{\textbackslash usepackage\{chemfig\}}}
 \item Si queremos que el fichero principal se vea más ordenado, entonces se debe
   indicar qué otro fichero realizará la carga, en cuyo caso se deberá escribir en
   el principal la línea: 
-  \textcolor{red!70!black}{\texttt{\textbackslash usepackage\{fichero.pkg\}}} en el
+  \textcolor{\standoutColor}{\texttt{\textbackslash usepackage\{fichero.pkg\}}} en el
   principal, indicando que el fichero que realizará la carga será 
  \texttt{fichero.pkg.sty}. En este último hay que añadir una línea que ponga:
- \textcolor{red!70!black}{\texttt{\textbackslash RequirePackage\{chemfig\}}},
+ \textcolor{\standoutColor}{\texttt{\textbackslash RequirePackage\{chemfig\}}},
  además del resto de paquetes que nos interese cargar.
 \end{itemize}
 
@@ -186,7 +186,7 @@ Se pueden dar dos situaciones:
         
         \% principal.pkg.sty
         
-        \textcolor{red!70!black}{\textbackslash usepackage\{principal.pkg\}}
+        \textcolor{\standoutColor}{\textbackslash usepackage\{principal.pkg\}}
         
         \vspace{2ex}
         
@@ -221,7 +221,7 @@ Se pueden dar dos situaciones:
         $\cdots$
         \vspace{1ex}
         
-        \textcolor{red!70!black}{\textbackslash RequirePackage\{chemfig\}}
+        \textcolor{\standoutColor}{\textbackslash RequirePackage\{chemfig\}}
         \vspace{1ex}
         
         $\cdots$
@@ -1278,9 +1278,9 @@ $2\cdot\qty{45}{\degree}=\qty{90}{\degree}$.
 \begin{tabular}{|c|c|}\hline
   \phantom{\rule{0.4pt}{10ex}}
   \chemfig{A-B-C}
-  & \chemfig{A-B(-[2,,,,red]\textcolor{red!70!black}{W}-[,,,,red]\textcolor{red!70!black}{X})-C}\\
+  & \chemfig{A-B(-[2,,,,red]\textcolor{\standoutColor}{W}-[,,,,red]\textcolor{\standoutColor}{X})-C}\\
   \texttt{\{A-B-C\}}
-  & \texttt{\{A-B\textcolor{red!70!black}{(-[2]W-X)}-C\}}\\
+  & \texttt{\{A-B\textcolor{\standoutColor}{(-[2]W-X)}-C\}}\\
   \hline
 \end{tabular}
 donde la ramificación se ha señalado en rojo.
@@ -1305,13 +1305,13 @@ en rojo:
 \begin{tabular}{|c|c|}\hline
   \phantom{\rule{0.4pt}{10ex}}
   \chemfig{A-B-[2]W-X}
-  & \chemfig{A-B(-[,,,,red]\textcolor{red!70!black}{C})-[2]W-X}\\
+  & \chemfig{A-B(-[,,,,red]\textcolor{\standoutColor}{C})-[2]W-X}\\
   \texttt{%
   \textbackslash chemfig\{A-B-[2]W-X\}
   }
   & \texttt{%
     \textbackslash chemfig\{%
-    \{A-B\textcolor{red!70!black}{(-C)}-[2]W-X}\\\hline
+    \{A-B\textcolor{\standoutColor}{(-C)}-[2]W-X}\\\hline
 \end{tabular}
 
 
@@ -1347,24 +1347,22 @@ documento\footnotemark{}:
   node style = {scale=0.85} % Escala ligeramente las etiquetas de los átomos
 }
 
-%\subsection{Ejemplos de ramificaciones en cadenas abiertas}
+\subsection{Ejemplos de ramificaciones en cadenas abiertas}
+Empezamos con unas cuantas versiones del \emph{isobutano}:
 
+\begin{tabular}{|c|c|}\hline
+  \phantom{\rule{0.4pt}{7ex}}
+  \chemfig{CH_3-CH(-[2]CH_3)-CH_3}
+  & \chemfig{CH_3-CH(-[6]CH_3)-CH_3}\\
+  {\small\texttt{%
+  \textbackslash chemfig\{CH\_3-CH(-[2]CH\_3)-CH\_3\}
+  }}
+  & {\small\texttt{%
+    \textbackslash chemfig\{CH\_3-CH(-[2]CH\_3)-CH\_3\}
+    }}
+  \\\hline
+\end{tabular}
 
-%Empezamos con unas cuantas versiones del \emph{isobutano}:
-%
-%\begin{tabular}{|c|c|}\hline
-%  \phantom{\rule{0.4pt}{7ex}}
-%  \chemfig{CH_3-CH(-[2]CH_3)-CH_3}
-%  & \chemfig{CH_3-CH(-[6]CH_3)-CH_3}\\
-%  {\small\texttt{%
-%  \textbackslash chemfig\{CH\_3-CH(-[2]CH\_3)-CH\_3\}
-%  }}
-%  & {\small\texttt{%
-%    \textbackslash chemfig\{CH\_3-CH(-[2]CH\_3)-CH\_3\}
-%    }}
-%  \\\hline
-%\end{tabular}
-%
 %\vspace{1ex}
 %A partir de ahora, siempre que sea posible evitaremos escribir el comando
 %\begin{center}
@@ -1592,7 +1590,7 @@ documento\footnotemark{}:
 %\begin{tabular}{|c|}\hline
 %  \phantom{\rule{0.4pt}{4ex}}
 %  \chemfig[bond join]{-[:36]-[::-72]=[::-72]-[::-72]=[::-72]}\\
-%  \color{\badcode}{\texttt{%
+%  \color{\badcodeColor}{\texttt{%
 %  [bond join]\{-[:36]-[::-72]=[::-72]-[::-72]=[::-72]\}
 %  }}
 %  \\\hline
@@ -1621,7 +1619,7 @@ documento\footnotemark{}:
 %\begin{tabular}{|c|}\hline
 %  \phantom{\rule{0.4pt}{5ex}}
 %   \chemfig{CH-[:36]CH_2-[::-72]CH=_[::-72]CH-[::-72]CH=_[::-72]}\\
-%   \color{\badcode}{\texttt{%
+%   \color{\badcodeColor}{\texttt{%
 %    \{-[:36]-[::-72]=\_[::-72]-[::-72]=\_[::-72]\}
 %    }}
 %  \\\hline
