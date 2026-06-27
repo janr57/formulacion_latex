@@ -249,13 +249,13 @@ significado:
   \texttt{<clave>} & \texttt{Por defecto} & \texttt{Descripción}\\\hline
   \textcolor{blue}{\texttt{chemfig style}}
   & ---
-  & Estilo que se le pasa a \texttt{tikz}\\
+  & Estilo que se le pasa a \textsf{TikZ}\\
   \textcolor{blue}{use atom strut}
   & false
   & Tener en cuenta la caja de un átomo al situar\\&& la del siguiente\\
   \textcolor{blue}{atom style}
   & ---
-  & Estilo de los nodos \emph{tikz} de los átomos\\
+  & Estilo de los nodos \textsf{TikZ} de los átomos\\
   \textcolor{blue}{bond join}
   & false
   & Une enlaces de forma precisa\\
@@ -722,18 +722,27 @@ Estas claves se utilizan para toda la fórmula.
 Si queremos aplicar un espacio de separación diferente para un enlace determinado
 en una fórmula, se puede añadir \texttt{\#} justo después del enlace.
 
-En el siguiente ejemplo suponemos que por defecto hemos establecido para todos los enlaces
-una distancia entre átomo y enlace un espaciado de $6pt$ (en realidad, entre el extremo
-de la caja y el comienzo del enlace).
+\vspace{1ex}
+En adelante cuando interese, evitaremos escribir el comando
+\texttt{\textbackslash chemfig}, aunque sí escribir los corchetes o llaves que le siguen con el fin de disminuir la anchura de las celdas de las tablas en los ejemplos.
+Por el mismo motivo, si hubiera corchetes con opciones generales para la fórmula, se
+pondrían en una línea diferente.
 
-En la primera fórmula, indicamos que el primer enlace tiene un espaciado de $0pt$ al
-principio y al final.
-En la segunda especificamos que el segundo enlace tenga un espaciado de $2pt$ al final de
-este.
-En la tercera dejamos el espaciado por defecto de \texttt{6pt}.
+Si además se estuviera teniendo en cuenta un valor por defecto que pudiera afectar a la fórmula, se especificaría en la primera línea, como en los ejemplos siguientes, donde
+por defecto se considera una distancia entre borde de la caja e inicio del dibujo del
+enlace de $6pt$.
 
-A propósito, para mantener manejable la anchura de las celdas, hemos eliminado el
-comando \texttt{\textbackslash chemfig}, aunque se debe utilizar en las fórmulas:
+\vspace{1ex}
+Si quisiéramos aplicar un espacio de separación diferente para un enlace determinado en
+una fórmula, se añadiría \texttt{\#} justo después del enlace, seguido de un par de
+distancias entre paréntesis y separadas por coma. Estas dos distancias indican el
+espacio entre el borde de la caja del primer átomo hasta que se dibuja el enlace, y la
+segundo es el espacio entre el final del enlace y el comienzo de la caja del segundo
+átomo. Si no se especifica alguna de las distancias, se asumiría el valor por defecto.
+
+\vspace{1ex}
+En la primera fórmula, el primer enlace tiene un espaciado de $0pt$ al principio y al final. En la segunda especificamos que el segundo enlace tenga un espaciado de $2pt$ al
+final de este. En la tercera indicamos un espaciado de $2pt$ al principio:
 
 {%
   \setchemfig{bond offset=6pt}
@@ -754,13 +763,18 @@ comando \texttt{\textbackslash chemfig}, aunque se debe utilizar en las fórmula
     \hline
   \end{tabular}
 }
-\vspace{1ex}
 
+Por ejemplo, la fórmula de la izquierda se escribiría como
+\begin{center}
+\texttt{\textbackslash chemfig[bond offset=0pt]\{A-\#(0pt,0pt)B-C\}}
+\end{center}
+
+\vspace{1ex}
 \item \texttt{bond style}:
 
   \vspace{-1ex}
   A los enlaces de la fórmula se le aplican los estilos del paquete de dibujo
-  \textsf{tikz}:
+  \textsf{TikZ}:
 
 \begin{tabular}{|c|c|}\hline
   \phantom{$\dfrac{1}{1}$}
@@ -1109,8 +1123,8 @@ Otro ejemplo:
 Por supuesto, 3 en el parámetro de ángulo de enlace es equivalente a un ángulo de
 \qty{135}{\degree}.
 
-\subsection{Personalización mediante \textsf{tikz}}
-Hay un quinto argumento para personalizar un enlace: \texttt{,,,,<tikz>}.
+\subsection{Personalización mediante \textsf{TikZ}}
+Hay un quinto argumento para personalizar un enlace: \texttt{[,,,,<\textsf{TikZ}>]}.
 Veamos unos ejemplos:
 
 \begin{tabular}{|cl|}\hline
@@ -1179,7 +1193,7 @@ cuarto, utilizamos el grosor por defecto del enlace, e incluso escribimos
 \subsection{Valores por defecto para los enlaces}
 Las propiedades de los enlaces están determinadas por cinco parámetros:
 \begin{center}
-  \texttt{[ángulo, coeficiente, salida, llegada, tikz]}
+  \texttt{[ángulo, coeficiente, salida, llegada, TikZ]}
 \end{center}
 
 Por defecto, \textsf{chemfig} utiliza los siguientes valores:
@@ -1202,10 +1216,10 @@ Por defecto, \textsf{chemfig} utiliza los siguientes valores:
   Lo que indica que el enlace se dirige
   entre los dos átomos más cercanos, teniendo en cuenta el ángulo que forma el enlace.
   
-\item Quinta posición, estilo tikz: \rule[0.5ex]{1.5em}{0.6pt}
+\item Quinta posición, estilo TikZ: \rule[0.5ex]{1.5em}{0.6pt}
 
   \vspace{-1ex}
-  No añade ningún estilo especial de \textsf{tikz}.
+  No añade ningún estilo especial de \textsf{TikZ}.
 \end{enumerate}
 
 \vspace{1ex}
@@ -1283,6 +1297,7 @@ $2\cdot\qty{45}{\degree}=\qty{90}{\degree}$.
   & \texttt{\{A-B\textcolor{\standoutColor}{(-[2]W-X)}-C\}}\\
   \hline
 \end{tabular}
+
 donde la ramificación se ha señalado en rojo.
 
 \vspace{1ex}
@@ -1316,7 +1331,7 @@ en rojo:
 
 
 \subsection{Ejemplo de configuración de \textsf{chemfig} por defecto}
-A partir de ahora, utilizaremos un sistema de valores por defecto para \textsf{chemfig}.
+A partir de ahora utilizaremos un sistema de valores por defecto para \textsf{chemfig}.
 Estos valores pueden variar según las preferencias del usuario. En todo caso, tómese
 como una propuesta.
 
@@ -1363,13 +1378,7 @@ Empezamos con unas cuantas versiones del \emph{isobutano}:
   \\\hline
 \end{tabular}
 
-%\vspace{1ex}
-%A partir de ahora, siempre que sea posible evitaremos escribir el comando
-%\begin{center}
-%  \texttt{\textbackslash chemfig}
-%\end{center}
-%aunque sí las llaves que le siguen. El propósito de esto es disminuir la anchura de las
-%celdillas en los ejemplos. Así, en lugar de la tabla anterior, la escribiremos como:
+\vspace{1ex}
 %
 %\begin{tabular}{|c|c|}\hline
 %  \phantom{\rule{0.4pt}{7ex}}
@@ -1728,11 +1737,11 @@ Empezamos con unas cuantas versiones del \emph{isobutano}:
 %que están conjugados. Para ello se utiliza la siguiente estructura entre corchetes
 %después de los dos asteriscos:
 %\begin{center}
-%  \texttt{**[<ángulo1>, <ángulo2>, <tikz>]<n>(enlaces)}
+%  \texttt{**[<ángulo1>, <ángulo2>, <TikZ>]<n>(enlaces)}
 %\end{center}
 %donde \texttt{ángulo1} es el ángulo en el que comienza a dibujarse el círculo,
-%\texttt{ángulo2} es el ángulo en que termina el dibujo, \texttt{tikz} indica el estilo
-%\textsf{tikz} que se empleará para el dibujo.
+%\texttt{ángulo2} es el ángulo en que termina el dibujo, \texttt{TikZ} indica el estilo
+%\textsf{TikZ} que se empleará para el dibujo.
 %Si no se especifican los ángulos, se dibujará un círculo completo.
 %
 %El ciclopentadieno tiene un \ce{CH2} (un vértice) que no interviene en las formas
