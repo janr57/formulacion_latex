@@ -1315,30 +1315,41 @@ en rojo:
 \end{tabular}
 
 
+\subsection{Ejemplo de configuración de \textsf{chemfig} por defecto}
+A partir de ahora, utilizaremos un sistema de valores por defecto para \textsf{chemfig}.
+Estos valores pueden variar según las preferencias del usuario. En todo caso, tómese
+como una propuesta.
+
+Esta configuración propone unas distancias interatómicas más cortas entre otras
+cosas. Es conveniente añadir estos valores u otros, según interese, en el preambulo del
+documento\footnotemark{}:
+\footnotetext{Para este documento no lo he puesto en el preámbulo porque hasta aquí he
+  preferido mostrar la configuración por defecto de \textsf{chemfig}; la añado en
+  este punto concreto del documento para que se aplique en adelante.}
+
+\texttt{%
+\noindent\textbackslash setchemfig\{\\
+\hspace*{2em}atom sep=2.0em, {\small\% Reduce la longitud de los enlaces}\\
+\hspace*{2em}bond offset=2pt, {\small\% Espacio entre el átomo y el inicio del enlace}\\
+\hspace*{2em}double bond sep=2.5pt, {\small\% Espacio entre líneas de un enlace múltiple}\\
+\hspace*{2em}bond spacing=3.0pt, {\small\% Espacio reservado para los enlaces múltiples}\\
+\hspace*{2em}cram size=3pt, {\small\% Ancho de la base de los enlaces de tipo Cram (cuñas)}\\
+\hspace*{2em}node style=\{scale=0.85\} {\small\% Escala las etiquetas de los átomos}\\
+\}}
+
+
+\setchemfig{
+  atom sep = 2.0em,       % Reduce la longitud de los enlaces (por defecto es 3.0em)
+  bond offset = 2pt,      % Espacio entre el átomo y el inicio del enlace
+  double bond sep = 2.5pt,% Espacio entre las dos líneas de un enlace doble
+  bond spacing = 3.0pt,   % Espacio entre los puntos de un par solitario (Lewis)
+  cram size = 3pt,        % Ancho de la base de los enlaces de tipo Cram (cuñas)
+  node style = {scale=0.85} % Escala ligeramente las etiquetas de los átomos
+}
+
 %\subsection{Ejemplos de ramificaciones en cadenas abiertas}
-%Para estos ejemplos utilizaremos unas distancias interatómicas más cortas:
-%
-%\texttt{
-%\noindent\textbackslash setchemfig\{\\
-%\hspace*{2em}atom sep=2.0em, {\small\% Reduce la longitud de los enlaces}\\
-%\hspace*{2em}bond offset=2pt, {\small\% Espacio entre el átomo y el inicio del enlace}\\
-%\hspace*{2em}double bond sep=2.5pt, {\small\% Espacio entre líneas de un enlace múltiple}\\
-%\hspace*{2em}bond spacing=3.0pt, {\small\% Espacio reservado para los enlaces múltiples}\\
-%\hspace*{2em}cram size=3pt, {\small\% Ancho de la base de los enlaces de tipo Cram (cuñas)}\\
-%\hspace*{2em}node style=\{scale=0.85\} {\small\% Escala las etiquetas de los átomos}\\
-%\}}
-%
-%
-%\setchemfig{
-%  atom sep = 2.0em,       % Reduce la longitud de los enlaces (por defecto es 3.0em)
-%  bond offset = 2pt,      % Espacio entre el átomo y el inicio del enlace
-%  double bond sep = 2.5pt,% Espacio entre las dos líneas de un enlace doble
-%  bond spacing = 3.0pt,   % Espacio entre los puntos de un par solitario (Lewis)
-%  cram size = 3pt,        % Ancho de la base de los enlaces de tipo Cram (cuñas)
-%  node style = {scale=0.85} % Escala ligeramente las etiquetas de los átomos
-%}
-%
-%
+
+
 %Empezamos con unas cuantas versiones del \emph{isobutano}:
 %
 %\begin{tabular}{|c|c|}\hline
