@@ -1465,11 +1465,12 @@ Ahora se sitúa $5pt$ por debajo de la base del átomo:
 
 
 \subsection{Ejemplos de ramificaciones en cadenas abiertas}
+En los primeros ejemplos que siguen se han señalado en negrita los átomos de carbono
+que forman la cadena base (no necesariamente la cadena principal), igual que en el código
+se señalan las ramificaciones en rojo.
 
 \subsubsection{\emph{Isobutano} o metilpropano}
-Observa que las dos fórmulas tienen la misma altura porque utilizan la misma línea base, dado que utilizan el mismo átomo \ce{C} en primer lugar. Se han señalado en negrita
-los átomos de carbono de la cadena base utilizada, y en la sección de código se ha
-señalado la ramificación en rojo:
+Observa que las dos fórmulas tienen la misma altura porque utilizan la misma línea base, dado que utilizan el mismo átomo \ce{C} en primer lugar:
 
 \begin{tabular}{|c|c|}\hline
   \phantom{\rule{0.4pt}{7ex}}
@@ -1481,9 +1482,6 @@ señalado la ramificación en rojo:
 \end{tabular}
 
 \vspace{1ex}
-En este caso, también se han señalado en negrita los átomos de carbono que forman la
-cadena base utilizada. En la sección de código se marca en rojo la ramificación.
-
 A la izquierda, se ha comenzado por el grupo de átomos \ce{CH3} superior.
 A la derecha se ha comenzado por el \ce{CH3} más a la izquierda.
 Podemos comprobar que ambos grupos de átomos están a la misma altura (misma línea base):
@@ -1500,26 +1498,17 @@ Podemos comprobar que ambos grupos de átomos están a la misma altura (misma l�
 \vspace{1ex}
 Para completar la explicación, modificaremos la segunda fórmula del primer par de
 ejemplos del \emph{isobutano} para que la cadena principal se encuentre por encima
-de la línea base. Seguimos señalando en negrita los carbonos de la cadena base utilizada
-y en la línea de código, en rojo, la ramificación:
+de la línea base:
 
 \begin{tabular}{|c|c|}\hline
   \phantom{\rule{0.4pt}{7ex}}
   \chemfig{\textbf{C}H_3-\textbf{C}H(-[2]CH_3)-\textbf{C}H_3}
   & \chemfig{\textbf{C}H_3-[2]\textbf{C}H(-[4]CH_3)-\textbf{C}H_3}\\
   \phantom{\rule{0.4pt}{2.5ex}}
-  \texttt{%
-  \{CH\_3-CH\textcolor{\standoutColor}{(-[2]CH\_3)}-CH\_3\}
-  }
-  & \texttt{%
-    \{CH\_3-[2]CH\textcolor{\standoutColor}{(-[4]CH\_3)}-CH\_3\}
-    }
-  \\\hline
+  \texttt{\{CH\_3-CH\textcolor{\standoutColor}{(-[2]CH\_3)}-CH\_3\}}
+  & \texttt{\{CH\_3-[2]CH\textcolor{\standoutColor}{(-[4]CH\_3)}-CH\_3\}}\\
+  \hline
 \end{tabular}
-
-\vspace{1ex}
-A partir de ahora no señalaremos en negrita los carbonos que forman la línea base, ni
-la ramificación en rojo en la línea de código.
 
 \vspace{1ex}
 Otras variantes del \emph{isopropano}:
@@ -1529,151 +1518,157 @@ Otras variantes del \emph{isopropano}:
   \chemfig{CH_3-[7]CH(-[5]CH_3)-CH_3}
   & \chemfig[bond join]{-[7](-[5])-}\\
   \phantom{\rule{0.4pt}{2.5ex}}
+  & \texttt{[bond join]}\\
+  \phantom{\rule{0.4pt}{2.5ex}}
+  \texttt{\{CH\_3-[7]CH(-[5]CH\_3)-CH\_3\}}
+  & \texttt{\{-[7](-[5])-\}}\\
+  \hline
+\end{tabular}
+
+\begin{tabular}{|c|}\hline
+  \phantom{\rule{0.4pt}{3ex}}
+  \chemfig[bond join]{CH_3-[7](-[5]CH_3)-CH_3}\\
+  \phantom{\rule{0.4pt}{3ex}}
+  \texttt{[bond join]}\\
+  \texttt{\{-[7]CH\_3(-[5]CH\_3)-CH\_3\}}\\
+  \hline
+\end{tabular}
+
+\subsubsection{Ácido acético o etanoico}
+\begin{tabular}{|c|c|}\hline
+  \phantom{\rule{0.4pt}{7ex}}
+  \chemfig{CH_3-COOH}
+  & \chemfig{CH_3-C(=[1]O)-[7]OH}\\
+  \phantom{\rule{0.4pt}{3ex}}
   \texttt{%
-  \{CH\_3-[7]CH(-[5]CH\_3)-CH\_3\}
+  \{CH\_3-COOH\}
   }
   & \texttt{%
-    [bond join]\{-[7](-[5])-\}
+    \{CH\_3-C(=[1]O)-[7]OH\}
     }
   \\\hline
 \end{tabular}
 
-%\begin{tabular}{|c|}\hline
-%  \phantom{\rule{0.4pt}{3ex}}
-%  \chemfig[bond join]{CH_3-[7](-[5]CH_3)-CH_3}\\
-%  \texttt{%
-%  [bond join]\{-[7]CH\_3(-[5]CH\_3)-CH\_3\}
-%  }
-%  \\\hline
-%\end{tabular}
-%
-%\vspace{1ex}
-%Varias versiones del ácido acético:
-%
-%\begin{tabular}{|c|c|}\hline
-%  \phantom{\rule{0.4pt}{7ex}}
-%  \chemfig{CH_3-COOH}
-%  & \chemfig{CH_3-C(=[1]O)-[7]OH}\\
-%  \texttt{%
-%  \{CH\_3-COOH\}
-%  }
-%  & \texttt{%
-%    \{CH\_3-C(=[1]O)-[7]OH\}
-%    }
-%  \\\hline
-%\end{tabular}
-%
-%\vspace{1ex}
-%Fórmula desarrollada:
-%
-%\begin{tabular}{|c|}\hline
-%  \phantom{\rule{0.4pt}{8ex}}
-%  \chemfig{H-C(-[2]H)(-[6]H)-C(=[1]O)-[7]O-H}\\
-%  \texttt{%
-%  \{H-C(-[2]H)(-[6]H)-C(=[1]O)-[7]O-H\}
-%  }
-%  \\\hline
-%\end{tabular}
-%
-%\vspace{1ex}
-%Fórmulas esquemáticas:
-%
-%\begin{tabular}{|c|c|}\hline
-%  \phantom{\rule{0.4pt}{8ex}}
-%  \chemfig{-(=[1]O)-[7]OH}
-%  & \chemfig{CH_3-(=[1]O)-[7]OH}\\
-%  \texttt{%
-%  \{-(=[1]O)-[7]OH\}
-%  }
-%  & \texttt{%
-%    \{CH\_3-(=[1]O)-[7]OH\}
-%    }
-%  \\\hline
-%\end{tabular}
+\vspace{1ex}
+Fórmula desarrollada:
 
-%\subsubsection{Ejemplo de molécula rotada}
-%A continuación, en lugar de ángulos abosolutos, reescribimos la fórmula desarrollada del
-%ácido acético, utilizando ángulos relativos (excepto el primero):
-%
-%\begin{tabular}{|c|}\hline
-%  \phantom{\rule{0.4pt}{7ex}}
-%  \chemfig{H-[:0]C(-[::90]H)(-[::-90]H)-[::0]C(=[::45]O)(-[::-45]O(-[::45]H))}\\
-%  \texttt{\small%
-%  \{H-[:0]C(-[::90]H)(-[::-90]H)-[::0]C(=[::45]O)(-[::-45]O(-[::45]H))\}
-%  }
-%  \\\hline
-%\end{tabular}
-%
-%\vspace{1ex}
-%Si ahora, modificamos el ángulo absoluto (el primero), podemos girar la molécula
-%entera un cierto ángulo:
-%\begin{center}
-%  $\texttt{ángulo final}-\texttt{ángulo inicial}=45-0=\qty{45}{\degree}$
-%\end{center}
-%Giramos la molécula un ángulo de \qty{45}{\degree}:
-%
-%\begin{tabular}{|c|}\hline
-%  \phantom{\rule{0.4pt}{13ex}}
-%  \chemfig{H-[:45]C(-[::90]H)(-[::-90]H)-[::0]C(=[::45]O)(-[::-45]O(-[::45]H))}\\
-%  \texttt{\small%
-%  \{H-[:45]C(-[::90]H)(-[::-90]H)-[::0]C(=[::45]O)(-[::-45]O(-[::45]H))\}
-%  }
-%  \\\hline
-%\end{tabular}
+\begin{tabular}{|c|}\hline
+  \phantom{\rule{0.4pt}{8ex}}
+  \chemfig{H-C(-[2]H)(-[6]H)-C(=[1]O)-[7]O-H}\\
+  \phantom{\rule{0.4pt}{3ex}}
+  \texttt{%
+  \{H-C(-[2]H)(-[6]H)-C(=[1]O)-[7]O-H\}
+  }
+  \\\hline
+\end{tabular}
+
+\vspace{1ex}
+Fórmulas esquemáticas:
+
+\begin{tabular}{|c|c|}\hline
+  \phantom{\rule{0.4pt}{8ex}}
+  \chemfig{-(=[1]O)-[7]OH}
+  & \chemfig{CH_3-(=[1]O)-[7]OH}\\
+  \phantom{\rule{0.4pt}{3ex}}
+  \texttt{%
+  \{-(=[1]O)-[7]OH\}
+  }
+  & \texttt{%
+    \{CH\_3-(=[1]O)-[7]OH\}
+    }
+  \\\hline
+\end{tabular}
+
+\subsubsection{Ejemplo de molécula rotada}
+A continuación, en lugar de ángulos abosolutos, reescribimos la fórmula desarrollada del
+ácido acético, utilizando ángulos relativos (excepto el primero). La cadena base que
+se utiliza es \ce{H-C-C-O-H}:
+
+\begin{tabular}{|c|}\hline
+  \phantom{\rule{0.4pt}{7ex}}
+  \chemfig{H-[:0]C(-[::90]H)(-[::-90]H)-[::0]C(=[::45]O)-[::-45]O-[::45]H}\\
+  \phantom{\rule{0.4pt}{3ex}}
+  \texttt{\small%
+  \{H-[\textcolor{\standoutColor}{:0}]  C(-[::90]H)(-[::-90]H)-[::0]C(=[::45]O)-[::-45]O-[::45]H\}
+  }
+  \\\hline
+\end{tabular}
+
+\vspace{1ex}
+Para girar la molécula \qty{45}{\degree}, queremos que:
+\begin{center}
+  $\texttt{ángulo final}-\texttt{ángulo inicial}=\texttt{ángulo de giro}$
+\end{center}
+\[
+  x-0=45
+\]
+\[
+  x = 45 + 0 = \qty{45}{\degree}
+\]
+
+Así, modificamos el ángulo absoluto (el primero) \qty{45}{\degree}:
+
+\begin{tabular}{|c|}\hline
+  \phantom{\rule{0.4pt}{13.5ex}}
+  \chemfig{H-[:45]C(-[::90]H)(-[::-90]H)-[::0]C(=[::45]O)(-[::-45]O(-[::45]H))}\\
+\texttt{\small\{H-[\textcolor{\standoutColor}{:45}]C(-[::90]H)(-[::-90]H)-[::0]C(=[::45]O)(-[::-45]O(-[::45]H))\}}\\
+  \hline
+\end{tabular}
+
+\subsubsection{Isomería geométrica \emph{cis-trans}: 2-hexeno}
+A continuación presentamos el $cis$-2-hexeno. Observa que \textsf{chemfig} considera que
+el radical etilo \ce{CH3CH2} (sin enlace \ce{C-C} explícito) es un \emph{átomo}; por
+ejemplo, podríamos sustituirlo por cualquier otro átomo, como el cloro, debido a que no
+se ha indicado el enlace entre los átomos de carbono del etilo:
+
+\begin{tabular}{|c|}\hline
+  \phantom{\rule{0.4pt}{3ex}}
+  \chemfig{CH_3CH_2-[7]C(-[5]H)=C(-[7]H)-[1]CH_2CH_3}\\
+  \phantom{\rule{0.4pt}{3ex}}
+  \texttt{\{CH\_3CH\_2-[7]C(-[5]H)=C(-[7]H)-[1]CH\_2CH\_3\}}\\
+  \hline
+\end{tabular}
+
+\vspace{1ex}
+Por ejemplo, sustituyendo el etilo por el cloro ($cis$-2,3-dicloroeteno):
+
+\begin{tabular}{|c|}\hline
+  \phantom{\rule{0.4pt}{3ex}}
+  \chemfig{Cl-[7]C(-[5]H)=C(-[7]H)-[1]Cl}\\
+  \phantom{\rule{0.4pt}{3ex}}
+  \texttt{%
+  \{Cl-[7]C(-[5]H)=C(-[7]H)-[1]Cl\}
+  }
+  \\\hline
+\end{tabular}
 
 
-%\subsubsection{Isomería geométrica \emph{cis-trans}}
-%A continuación presentamos el $cis$-1,2-dietileteno. Observa que \textsf{chemfig}
-%considera que el radical etilo \ce{CH3CH2} (sin enlace \ce{C-C} explícito) es un
-%\emph{átomo}; por ejemplo, podríamos sustituirlo por cualquier otro átomo, como el cloro,
-%debido a que no se ha indicado el enlace entre los átomos de carbono del etilo:
-%
-%\begin{tabular}{|c|}\hline
-%  \phantom{\rule{0.4pt}{3ex}}
-%  \chemfig{CH_3CH_2-[7]C(-[5]H)=C(-[7]H)-[1]CH_2CH_3}\\
-%  \texttt{%
-%  \{CH\_3CH\_2-[7]C(-[5]H)=C(-[7]H)-[1]CH\_2CH\_3\}
-%  }
-%  \\\hline
-%\end{tabular}
-%
-%\vspace{1ex}
-%Por ejemplo, sustituyendo el etilo por el cloro:
-%
-%\begin{tabular}{|c|}\hline
-%  \phantom{\rule{0.4pt}{3ex}}
-%  \chemfig{Cl-[7]C(-[5]H)=C(-[7]H)-[1]Cl}\\
-%  \texttt{%
-%  \{Cl-[7]C(-[5]H)=C(-[7]H)-[1]Cl\}
-%  }
-%  \\\hline
-%\end{tabular}
-%
-%
-%\vspace{1ex}
-%Si queremos incluir el enlace en el etilo, entonces hay que tener en cuenta que
-%el \texttt{CH\_3} y el \texttt{CH\_2} del etilo son dos \emph{átomos} diferentes:
-%
-%\begin{tabular}{|c|}\hline
-%  \phantom{\rule{0.4pt}{3ex}}
-%  \chemfig{CH_3-CH_2-[7]C(-[5]H)=C(-[7]H)-[1]CH_2-CH_3}\\
-%  \texttt{%
-%  \{CH\_3-CH\_2-[7]C(-[5]H)=C(-[7]H)-[1]CH\_2-CH\_3\}
-%  }
-%  \\\hline
-%\end{tabular}
-%
-%\vspace{1pt}
-%El isómero \emph{trans} sería:
-%
-%\begin{tabular}{|c|}\hline
-%  \phantom{\rule{0.4pt}{3ex}}
-%  \chemfig{CH_3-CH_2-[7]C(-[5]H)=C(-[1]H)-[7]CH_2-CH_3}\\
-%  \texttt{%
-%  \{CH\_3-CH\_2-[7]C(-[5]H)=C(-[1]H)-[7]CH\_2-CH\_3\}
-%  }
-%  \\\hline
-%\end{tabular}
+\vspace{1ex}
+Si queremos incluir el enlace en el etilo, entonces hay que tener en cuenta que
+el \ce{CH_3} y el \ce{CH_2} del etilo son dos \emph{átomos} diferentes:
+
+\begin{tabular}{|c|}\hline
+  \phantom{\rule{0.4pt}{3ex}}
+  \chemfig{CH_3-CH_2-[7]C(-[5]H)=C(-[7]H)-[1]CH_2-CH_3}\\
+  \phantom{\rule{0.4pt}{3ex}}
+  \texttt{%
+  \{CH\_3-CH\_2-[7]C(-[5]H)=C(-[7]H)-[1]CH\_2-CH\_3\}
+  }
+  \\\hline
+\end{tabular}
+
+\vspace{1ex}
+El isómero \emph{trans} sería:
+
+\begin{tabular}{|c|}\hline
+  \phantom{\rule{0.4pt}{3ex}}
+  \chemfig{CH_3-CH_2-[7]C(-[5]H)=C(-[1]H)-[7]CH_2-CH_3}\\
+  \phantom{\rule{0.4pt}{3ex}}
+  \texttt{%
+  \{CH\_3-CH\_2-[7]C(-[5]H)=C(-[1]H)-[7]CH\_2-CH\_3\}
+  }
+  \\\hline
+\end{tabular}
 
 
 %\section{Anillos}
