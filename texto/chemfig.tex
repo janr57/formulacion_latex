@@ -1377,7 +1377,7 @@ En el siguiente ejemplo, el átomo \ce{A} es el primero que aparece en el comand
   \phantom{\chemfig{A-B}}\hspace{-3em}\tikz \draw[help lines, red,] (0,0) -- (5em,0);
   \chemfig{A-B}
   \tikz \draw[help lines, red] (0,0) -- (5em,0);
-  \\[0.25ex]\hline
+  \\[0.25ex]
   \multicolumn{1}{|c|}{%
   \phantom{\rule{0.4pt}{3ex}}
   \texttt{\textbackslash chemfig\{A-B\}}
@@ -1394,7 +1394,7 @@ invisible sin tamaño:
   \phantom{\chemfig{-B}}\hspace{-2em}\tikz \draw[help lines, red] (0,0) -- (5em,0);
   \chemfig{-B}
   \tikz \draw[help lines, red] (0,0) -- (5em,0);
-  \\[0.25ex]\hline
+  \\[0.25ex]
   \phantom{\rule{0.4pt}{3ex}}
   \texttt{\textbackslash chemfig\{-B\}}
   \\\hline
@@ -1408,7 +1408,7 @@ En la siguiente fórmula hemos puesto \ce{A} como primer átomo:
   \phantom{\chemfig{A-[7]B}}\hspace{-2em}\tikz \draw[help lines, red] (0,0) -- (5em,0);
   \chemfig{A-[7]B}
   \tikz \draw[help lines, red] (0,0) -- (5em,0);
-  \\[3.5ex]\hline
+  \\[3.5ex]
   \phantom{\rule{0.4pt}{3ex}}
   \texttt{\textbackslash chemfig\{A-[7]B\}}
   \\\hline
@@ -1422,7 +1422,7 @@ Ahora repetimos la misma fórmula, pero dibujamos primero \ce{B}:
   \phantom{\chemfig{B-[3]A}}\hspace{-2em}\tikz \draw[help lines, red] (0,0) -- (5em,0);
   \chemfig{B-[3]A}
   \tikz \draw[help lines, red] (0,0) -- (5em,0);
-  \\[0.25ex]\hline
+  \\[0.25ex]
   \phantom{\rule{0.4pt}{3ex}}
   \texttt{\textbackslash chemfig\{B-[3]A\}}
   \\\hline
@@ -1436,10 +1436,10 @@ En el siguiente ejemplo, la línea base se sitúa $5pt$ por encima de la base de
 
 \begin{tabular}{|l|}\hline
   \phantom{\rule{0.4pt}{2ex}}
-  \phantom{\chemfig{A-B}}\hspace{-1em}\tikz \draw[help lines, red,] (0,0) -- (5em,0);
+  \phantom{\chemfig{A-B}}\hspace{-2.5em}\tikz \draw[help lines, red,] (0,0) -- (5em,0);
   \chemfig[baseline=5pt]{A-B}
   \tikz \draw[help lines, red] (0,0) -- (5em,0);
-  \\[1.25ex]\hline
+  \\[1.25ex]
   \multicolumn{1}{|c|}{%
   \phantom{\rule{0.4pt}{3ex}}
   \texttt{\textbackslash chemfig[baseline=5pt]\{A-B\}}
@@ -1452,10 +1452,10 @@ Ahora se sitúa $5pt$ por debajo de la base del átomo:
 
 \begin{tabular}{|l|}\hline
   \phantom{\rule{0.4pt}{4ex}}
-  \phantom{\chemfig{A-B}}\hspace{-1em}\tikz \draw[help lines, red,] (0,0) -- (5em,0);
+  \phantom{\chemfig{A-B}}\hspace{-2.5em}\tikz \draw[help lines, red,] (0,0) -- (5em,0);
   \chemfig[baseline=-5pt]{A-B}
   \tikz \draw[help lines, red] (0,0) -- (5em,0);
-  \\[1ex]\hline
+  \\[1ex]
   \multicolumn{1}{|c|}{%
   \phantom{\rule{0.4pt}{3ex}}
   \texttt{\textbackslash chemfig[baseline=-5pt]\{A-B\}}
@@ -1465,82 +1465,79 @@ Ahora se sitúa $5pt$ por debajo de la base del átomo:
 
 
 \subsection{Ejemplos de ramificaciones en cadenas abiertas}
-Empezamos con unas cuantas versiones del \emph{isobutano}.
 
-Observa que las dos fórmulas siguen la misma línea base porque utilizan el mismo átomo
-\ce{C} en el comando:
+\subsubsection{\emph{Isobutano} o metilpropano}
+Observa que las dos fórmulas tienen la misma altura porque utilizan la misma línea base, dado que utilizan el mismo átomo \ce{C} en primer lugar. Se han señalado en negrita
+los átomos de carbono de la cadena base utilizada, y en la sección de código se ha
+señalado la ramificación en rojo:
 
 \begin{tabular}{|c|c|}\hline
   \phantom{\rule{0.4pt}{7ex}}
-  \chemfig{CH_3-CH(-[2]CH_3)-CH_3}
-  & \chemfig{CH_3-CH(-[6]CH_3)-CH_3}\\
-  {\small\texttt{%
-  \textbackslash chemfig\{CH\_3-CH(-[2]CH\_3)-CH\_3\}
-  }}
-  & {\small\texttt{%
-    \textbackslash chemfig\{CH\_3-CH(-[2]CH\_3)-CH\_3\}
-    }}
+  \chemfig{\textbf{C}H_3-\textbf{C}H(-[2]CH_3)-\textbf{C}H_3}
+  & \chemfig{\textbf{C}H_3-CH(-[6]CH_3)-CH_3}\\
+  \texttt{\{CH\_3-CH\textcolor{\standoutColor}{(-[2]CH\_3)}-CH\_3\}}
+  & \texttt{\{CH\_3-CH\textcolor{\standoutColor}{(-[2]CH\_3)}-CH\_3\}}\\
+  \hline
+\end{tabular}
+
+\vspace{1ex}
+En este caso, también se han señalado en negrita los átomos de carbono que forman la
+cadena base utilizada. En la sección de código se marca en rojo la ramificación.
+
+A la izquierda, se ha comenzado por el grupo de átomos \ce{CH3} superior.
+A la derecha se ha comenzado por el \ce{CH3} más a la izquierda.
+Podemos comprobar que ambos grupos de átomos están a la misma altura (misma línea base):
+
+\begin{tabular}{|c|c|}\hline
+  \phantom{\rule{0.4pt}{3ex}}
+  \chemfig{\textbf{C}H_3-[6]\textbf{C}H(-[4]CH_3)-\textbf{C}H_3}
+  & \chemfig{\textbf{C}H_3-\textbf{C}H(-[6]CH_3)-\textbf{C}H_3}\\
+  \texttt{\{CH\_3-[6]CH\textcolor{\standoutColor}{(-[4]CH\_3)}-CH\_3\}}
+  & \texttt{\{CH\_3-CH\textcolor{\standoutColor}{(-[6]CH\_3)}-CH\_3\}}\\
+  \hline
+\end{tabular}
+
+\vspace{1ex}
+Para completar la explicación, modificaremos la segunda fórmula del primer par de
+ejemplos del \emph{isobutano} para que la cadena principal se encuentre por encima
+de la línea base. Seguimos señalando en negrita los carbonos de la cadena base utilizada
+y en la línea de código, en rojo, la ramificación:
+
+\begin{tabular}{|c|c|}\hline
+  \phantom{\rule{0.4pt}{7ex}}
+  \chemfig{\textbf{C}H_3-\textbf{C}H(-[2]CH_3)-\textbf{C}H_3}
+  & \chemfig{\textbf{C}H_3-[2]\textbf{C}H(-[4]CH_3)-\textbf{C}H_3}\\
+  \phantom{\rule{0.4pt}{2.5ex}}
+  \texttt{%
+  \{CH\_3-CH\textcolor{\standoutColor}{(-[2]CH\_3)}-CH\_3\}
+  }
+  & \texttt{%
+    \{CH\_3-[2]CH\textcolor{\standoutColor}{(-[4]CH\_3)}-CH\_3\}
+    }
   \\\hline
 \end{tabular}
 
 \vspace{1ex}
+A partir de ahora no señalaremos en negrita los carbonos que forman la línea base, ni
+la ramificación en rojo en la línea de código.
 
+\vspace{1ex}
+Otras variantes del \emph{isopropano}:
 
+\begin{tabular}{|c|c|}\hline
+  \phantom{\rule{0.4pt}{3ex}}
+  \chemfig{CH_3-[7]CH(-[5]CH_3)-CH_3}
+  & \chemfig[bond join]{-[7](-[5])-}\\
+  \phantom{\rule{0.4pt}{2.5ex}}
+  \texttt{%
+  \{CH\_3-[7]CH(-[5]CH\_3)-CH\_3\}
+  }
+  & \texttt{%
+    [bond join]\{-[7](-[5])-\}
+    }
+  \\\hline
+\end{tabular}
 
-%Si comparamos las dos fórmulas anteriores, vemos que las cadenas principales se
-%encuentran a la misma altura (\emph{baseline}). Esto se debe a que el \emph{átomo}
-%de referencia (el que se encuentra en la línea base) es el primero que se escribe.
-%
-%\begin{tabular}{|c|c|}\hline
-%  \phantom{\rule{0.4pt}{3ex}}
-%  \chemfig{\color{\greenatom}{CH_3}-[6]CH(-[4]CH_3)-CH_3}
-%  & \chemfig{\color{\greenatom}{CH_3}-CH(-[6]CH_3)-CH_3}\\
-%  \texttt{%
-%  \{CH\_3-CH(-[2]CH\_3)-CH\_3\}
-%  }
-%  & \texttt{%
-%    \{CH\_3-CH(-[2]CH\_3)-CH\_3\}
-%    }
-%  \\\hline
-%\end{tabular}
-%
-%En este caso, en la fórmula de la izquierda se ha escrito primero el átomo (\ce{CH3})
-%superior, por lo que ahora está a la misma altura que la cadena principal en la
-%segunda fórmula.
-%
-%Para completar la explicación, modificaremos la segunda fórmula del primer par de
-%ejemplos del \emph{isobutano}, para que la cadena principal se encuentre por encima
-%de la línea base:
-%
-%\begin{tabular}{|c|c|}\hline
-%  \phantom{\rule{0.4pt}{7ex}}
-%  \chemfig{\color{\greenatom}{CH_3}-CH(-[2]CH_3)-CH_3}
-%  & \chemfig{\color{\greenatom}{CH_3}-[2]CH(-[4]CH_3)-CH_3}\\
-%  \texttt{%
-%  \{CH\_3-CH(-[2]CH\_3)-CH\_3\}
-%  }
-%  & \texttt{%
-%    \{CH\_3-[2]CH(-[4]CH\_3)-CH\_3\}
-%    }
-%  \\\hline
-%\end{tabular}
-%
-%\vspace{1ex}
-%Otras variantes del \emph{isopropano}:
-%
-%\begin{tabular}{|c|c|}\hline
-%  \phantom{\rule{0.4pt}{3ex}}
-%  \chemfig{CH_3-[7]CH(-[5]CH_3)-CH_3}
-%  & \chemfig[bond join]{-[7](-[5])-}\\
-%  \texttt{%
-%  \{CH\_3-[7]CH(-[5]CH\_3)-CH\_3\}
-%  }
-%  & \texttt{%
-%    [bond join]\{-[7](-[5])-\}
-%    }
-%  \\\hline
-%\end{tabular}
-%
 %\begin{tabular}{|c|}\hline
 %  \phantom{\rule{0.4pt}{3ex}}
 %  \chemfig[bond join]{CH_3-[7](-[5]CH_3)-CH_3}\\
