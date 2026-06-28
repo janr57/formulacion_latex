@@ -1330,7 +1330,7 @@ en rojo:
 \end{tabular}
 
 
-\subsection{Ejemplo de configuración de \textsf{chemfig} por defecto}
+\section{Ejemplo de configuración de \textsf{chemfig} por defecto}
 A partir de ahora utilizaremos un sistema de valores por defecto para \textsf{chemfig}.
 Estos valores pueden variar según las preferencias del usuario. En todo caso, tómese
 como una propuesta.
@@ -1365,7 +1365,7 @@ documento\footnotemark{}:
 A partir de ahora se aplicarán los valores anteriores por defecto, a menos que se diga
 lo contrario.
 
-\subsection{Efecto del primer átomo en la línea base}
+\section{Efecto del primer átomo en la línea base}
 El primer elemento, átomo o enlace que se dibuja en una fórmula define la línea base,
 que se indica en rojo.
 
@@ -1464,12 +1464,12 @@ Ahora se sitúa $5pt$ por debajo de la base del átomo:
 \end{tabular}
 
 
-\subsection{Ejemplos de ramificaciones en cadenas abiertas}
+\section{Ejemplos de ramificaciones en cadenas abiertas}
 En los primeros ejemplos que siguen se han señalado en negrita los átomos de carbono
 que forman la cadena base (no necesariamente la cadena principal), igual que en el código
 se señalan las ramificaciones en rojo.
 
-\subsubsection{\emph{Isobutano} o metilpropano}
+\subsection{\emph{Isobutano} o metilpropano}
 Observa que las dos fórmulas tienen la misma altura porque utilizan la misma línea base, dado que utilizan el mismo átomo \ce{C} en primer lugar:
 
 \begin{tabular}{|c|c|}\hline
@@ -1534,7 +1534,7 @@ Otras variantes del \emph{isopropano}:
   \hline
 \end{tabular}
 
-\subsubsection{Ácido acético o etanoico}
+\subsection{Ácido acético o etanoico}
 \begin{tabular}{|c|c|}\hline
   \phantom{\rule{0.4pt}{7ex}}
   \chemfig{CH_3-COOH}
@@ -1579,7 +1579,7 @@ Fórmulas esquemáticas:
   \\\hline
 \end{tabular}
 
-\subsubsection{Ejemplo de molécula rotada}
+\subsection{Ejemplo de molécula rotada}
 A continuación, en lugar de ángulos abosolutos, reescribimos la fórmula desarrollada del
 ácido acético, utilizando ángulos relativos (excepto el primero). La cadena base que
 se utiliza es \ce{H-C-C-O-H}:
@@ -1615,14 +1615,14 @@ Así, modificamos el ángulo absoluto (el primero) \qty{45}{\degree}:
   \hline
 \end{tabular}
 
-\subsubsection{Anhídrido acético}
+\subsection{Anhídrido acético}
 En el siguiente ejemplo, las longitudes de enlace quedan algo diferentes:
 
 \begin{tabular}{|c|}\hline
-  \phantom{\rule{0.4pt}{ex}}
+  \phantom{\rule{0.4pt}{2ex}}
   \chemfig{CH_3-CO-O-CO-CH_3}\\
   \phantom{\rule{0.4pt}{1ex}}
-  \texttt{%2
+  \texttt{%
   \{CH\_3-CO-O-CO-CH\_3\}
   }
   \\\hline
@@ -1668,11 +1668,13 @@ Otras variantes:
   \\\hline
 \end{tabular}
 
-\subsubsection{Otras cadenas ramificadas}
+\subsection{Otras cadenas ramificadas: 2-etil-3-isopropil-1,4-hexadiento}
+
 \begin{tabular}{|c|}\hline
   \phantom{\rule{0.4pt}{7ex}}
-  \chemfig{CH_2=C(-[2]CH_2-CH_3)-CH(-[6]CH(-[6]CH_3)-CH_3)-CH=CH-CH_3}\\
+  \chemfig[atom sep=1.1em,fixed length=true]  {CH_2=C(-[2]CH_2-CH_3)-CH(-[6]CH(-[6]CH_3)-CH_3)-CH=CH-CH_3}\\
   \phantom{\rule{0.4pt}{3ex}}
+  \texttt{[atom sep=1.1em,fixed length]}\\
   \texttt{%
   \{CH\_2=C(-[2]CH\_2-CH\_3)-CH(-[6]CH(-[6]CH\_3)-CH\_3)-CH=CH-CH\_3\}
   }
@@ -1680,7 +1682,7 @@ Otras variantes:
 \end{tabular}
 
 
-\subsubsection{Isomería geométrica \emph{cis-trans}: 2-hexeno}
+\subsection{Isomería geométrica \emph{cis-trans}: 2-hexeno}
 A continuación presentamos el $cis$-2-hexeno. Observa que \textsf{chemfig} considera que
 el radical etilo \ce{CH3CH2} (sin enlace \ce{C-C} explícito) es un \emph{átomo}; por
 ejemplo, podríamos sustituirlo por cualquier otro átomo, como el cloro, debido a que no
@@ -1734,7 +1736,6 @@ El isómero \emph{trans} sería:
   }
   \\\hline
 \end{tabular}
-
 
 
 %\section{Anillos}
