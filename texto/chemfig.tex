@@ -1615,6 +1615,71 @@ Así, modificamos el ángulo absoluto (el primero) \qty{45}{\degree}:
   \hline
 \end{tabular}
 
+\subsubsection{Anhídrido acético}
+En el siguiente ejemplo, las longitudes de enlace quedan algo diferentes:
+
+\begin{tabular}{|c|}\hline
+  \phantom{\rule{0.4pt}{ex}}
+  \chemfig{CH_3-CO-O-CO-CH_3}\\
+  \phantom{\rule{0.4pt}{1ex}}
+  \texttt{%2
+  \{CH\_3-CO-O-CO-CH\_3\}
+  }
+  \\\hline
+\end{tabular}
+
+\vspace{1ex}
+Se puede arreglar mediante \texttt{atom sep} y \texttt{fixed length=true}:
+
+\begin{tabular}{|c|}\hline
+  \phantom{\rule{0.4pt}{3ex}}
+  \chemfig[atom sep=1em,fixed length]{CH_3-CO-O-CO-CH_3}\\
+  \phantom{\rule{0.4pt}{1ex}}
+  \texttt{%
+  [atom sep=1em,fixed length]
+  }\\
+  \phantom{\rule{0.4pt}{1ex}}
+  \texttt{%
+  \{CH\_3-CO-O-CO-CH\_3\}
+  }\\  
+  \hline
+\end{tabular}
+
+\vspace{1ex}
+Otras variantes:
+
+\begin{tabular}{|c|}\hline
+  \phantom{\rule{0.4pt}{6ex}}
+  \chemfig{CH_3-C(=[1]O)-[7]O-[5]C(=[7]O)-[4]CH_3}\\
+  \phantom{\rule{0.4pt}{3ex}}
+  \texttt{%
+  \{CH\_3-C(=[1]O)-[7]O-[5]C(=[7]O)-[4]CH\_3\}
+  }
+  \\\hline
+\end{tabular}
+
+\begin{tabular}{|c|}\hline
+  \phantom{\rule{0.4pt}{7ex}}
+  \chemfig{H-C(-[2]H)(-[6]H)-C(=[1]O)-[7,2]O-[5,2]C(=[7]O)-[4]C(-[2]H)(-[6]H)-[4]H}\\
+  \phantom{\rule{0.4pt}{3ex}}
+  \texttt{%
+  \{CH\_3-C(=[1]O)-[7]O-[5]C(=[7]O)-[4]CH\_3\}
+  }
+  \\\hline
+\end{tabular}
+
+\subsubsection{Otras cadenas ramificadas}
+\begin{tabular}{|c|}\hline
+  \phantom{\rule{0.4pt}{7ex}}
+  \chemfig{CH_2=C(-[2]CH_2-CH_3)-CH(-[6]CH(-[6]CH_3)-CH_3)-CH=CH-CH_3}\\
+  \phantom{\rule{0.4pt}{3ex}}
+  \texttt{%
+  \{CH\_2=C(-[2]CH\_2-CH\_3)-CH(-[6]CH(-[6]CH\_3)-CH\_3)-CH=CH-CH\_3\}
+  }
+  \\\hline
+\end{tabular}
+
+
 \subsubsection{Isomería geométrica \emph{cis-trans}: 2-hexeno}
 A continuación presentamos el $cis$-2-hexeno. Observa que \textsf{chemfig} considera que
 el radical etilo \ce{CH3CH2} (sin enlace \ce{C-C} explícito) es un \emph{átomo}; por
@@ -1644,7 +1709,7 @@ Por ejemplo, sustituyendo el etilo por el cloro ($cis$-2,3-dicloroeteno):
 
 
 \vspace{1ex}
-Si queremos incluir el enlace en el etilo, entonces hay que tener en cuenta que
+Si queremos incluir el enlace \ce{C-C} en el etilo, entonces hay que tener en cuenta que
 el \ce{CH_3} y el \ce{CH_2} del etilo son dos \emph{átomos} diferentes:
 
 \begin{tabular}{|c|}\hline
@@ -1669,6 +1734,7 @@ El isómero \emph{trans} sería:
   }
   \\\hline
 \end{tabular}
+
 
 
 %\section{Anillos}
